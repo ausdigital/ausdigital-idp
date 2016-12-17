@@ -309,8 +309,8 @@ escalate LOA).
 
 For example:
 
- * If IDP-X issued a token with <ID-A@LOA-2> and <ID-B@LOA-2>; and
- * IDP-Y issued the same RP a token with <ID-B@LOA-1> and ID-C@LOA-1 ;
+ * If IDP-X issued a token with ID-A@LOA-2 and ID-B@LOA-2; and
+ * IDP-Y issued the same RP a token with ID-B@LOA-1 and ID-C@LOA-1;
  * by transitive inference, the RP knows ID-A is an alias for ID-C
  * the LOA of this alias relationship is LOA-1 (the lesser of LOA-1 and LOA-2)
 
@@ -323,9 +323,9 @@ their assertion.
 Mutualy asserted alias relationships are made at the higher LOA of the
 pair. For example:
 
- * If IDP-X issued a token for <ID-A@LOA-2>; and
+ * If IDP-X issued a token for ID-A@LOA-2; and
  * This token was used to assert alias relationship with ID-C; and
- * IDP-Y issued a token for <ID-C@LOA-1>; and
+ * IDP-Y issued a token for ID-C@LOA-1; and
  * that token was used to assert alias relationship with ID-A; then
  * by mutual assertion, ID-A is an alias for ID-C
  * the LOA of the alias relationship is LOA-2 (the greater of LOA-1 and LOA-2)
