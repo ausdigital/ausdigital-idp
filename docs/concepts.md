@@ -22,6 +22,9 @@ authorisation (to RPs).
  * An RP can be a client of multiple IDPs
  * An IDP can have many Users
 
+![identity services ERD](images/identity_services.png)
+
+
 ## Bearer Tokens
 
 Identity service consumers are called "Relying Parties" because they
@@ -37,6 +40,8 @@ This means that the RP is issued a JWT by the IDP, and the RP relys on
 that JWT for information about someone's identity, and to prove that
 (acording to the IDP) the RP has the user's permission to do certain
 things.
+
+![bearer token ERD](images/bearer_tokens.png)
 
 A JWT:
 
@@ -67,6 +72,8 @@ implement custom scopes and claims if they need to. The ADBC IDP
 Specification makes used of custom scopes and claims, which ADBC IDP
 Specification compliant IDPs must also support.
 
+![claims and scopes ERD](images/claims_and_scopes.png)
+
 
 ## Custom Claims and Scopes in the ADBC IDP domain
 
@@ -81,6 +88,8 @@ Identity Providers can be found to service them.
 The ADBC IDP Specification also adds a single aditional authorisation
 scope ("update business metadata"). This scope is required for
 orchestrating business message components.
+
+![update business metadata ERD](images/update_business_metadata.png)
 
 For example, under the spec, a JWT may prove:
  * Authentication with a claim to represent ABN 12345678
@@ -116,6 +125,8 @@ Australian Business Register operates an IDP service called VanGuard.
  * A Jurisdiction may operate zero or more Identity Providers
  * An Identity Provider may be operated publicaly (by a Jurisdiction) or privately (by a person or company).
 
+![ID schemes and jurisdictions ERD](images/id_schemes_and_jurisdictions.png)
+
 
 ## Two kinds of trust
 
@@ -148,11 +159,14 @@ it's source of identity strength. It defines different "Levels of
 Assurance" (LOA) depending on the regulatory regime that underpins the
 identity assurance.
 
+
 ## How an RP trusts an IDP
 
 Consider these two hypothetical scenarios:
  * IDP-A uses a username/password credential for authenticating Australian businesses, where both the username and password are always easily guessable (single factor weak credential). It would be trivially easy easy to trick the IDP-A into issueing tokens that do not in fact represent authentication or authorisation of the business.
  * IDP-B requires a very long and complicated password and the presentation of a tamper-resistant hardware device in person to a physically secure locaton, where a full-body NMRI scan is performed (triple factor strong credentials). It is very difficult to trick IDP-B into issueing tokens that do not represent authentication and authorisation of the business.
+
+![credential trust ERD](images/credential_trust.png)
 
 An RP has to make their own assessment of the security of the IDP, based
 on the IDP's systems and processes, and perhaps also their reputation.
@@ -204,6 +218,8 @@ RP might have:
  * Medium confidence in the ABN claim
  * Medium confidence in the DUNS claim
 
+![LOA trust ERD](images/loa_trust.png)
+
 In words, that illustration says:
  * An IDP can issue many tokens (JWT)
  * An RP can be issued many tokens
@@ -216,7 +232,7 @@ claims are measured in with 4 standardised Levels of Assurance (LOA),
 ranging from low (self-asserted identity) through to very high
 (Government identity services). A significant part of the specification
 related to definition of these levels and how an RP can apply them.
-
+	
 
 ## Authorisation and contractual proof of consent
 
