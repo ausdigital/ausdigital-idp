@@ -63,6 +63,7 @@ IDP) they have some authorisation scopes and authentication claims by
 the IDP.
 
 A JWT can have:
+
  * multiple authorisation scopes (information about permission given to the RP)
  * multiple authentication claims (information about the identity of the user that gave permission).
 
@@ -92,6 +93,7 @@ orchestrating business message components.
 ![update business metadata ERD](images/update_business_metadata.png)
 
 For example, under the spec, a JWT may prove:
+
  * Authentication with a claim to represent ABN 12345678
  * Authorisation with scope of "update business metadata"
 
@@ -163,6 +165,7 @@ identity assurance.
 ## How an RP trusts an IDP
 
 Consider these two hypothetical scenarios:
+
  * IDP-A uses a username/password credential for authenticating Australian businesses, where both the username and password are always easily guessable (single factor weak credential). It would be trivially easy easy to trick the IDP-A into issueing tokens that do not in fact represent authentication or authorisation of the business.
  * IDP-B requires a very long and complicated password and the presentation of a tamper-resistant hardware device in person to a physically secure locaton, where a full-body NMRI scan is performed (triple factor strong credentials). It is very difficult to trick IDP-B into issueing tokens that do not represent authentication and authorisation of the business.
 
@@ -193,34 +196,40 @@ jurisdiction, etc).
 
 Imagine four scenarios. In all of them, the IDP issued an token with two
 authentication claims:
+
  * the about the ABN is 1234567
  * the DUNS number is 56789
 
 In the first scenario, the IDP is operated by Dun and Bradstreet (who
 administer DUNS numbers). In this situation, the RP might have:
+
  * Medium confidence in identity assurance the DUNS claim
  * Low confidence in the identity assurance of the ABN claim
 
 In the second scenario, the IDP is operated by an Australian bank. Due
 to anti money laundering and other KYC type regulations, the RP might
 have:
+
  * High confidence in the ABN claim
  * Low confidence in the DUNS claim
 
 In the third scenario, the IDP is operated by the Australian
 Commonwealth (Government). The RP might have:
+
  * Very High confidence in the ABN claim
  * Low confidence in the DUNS claim
 
 In the fourth scenario, the IDP is operated by a commercial organisation
 with a contractual obligation to verify the identity of it's claims. The
 RP might have:
+
  * Medium confidence in the ABN claim
  * Medium confidence in the DUNS claim
 
 ![LOA trust ERD](images/loa_trust.png)
 
 In words, that illustration says:
+
  * An IDP can issue many tokens (JWT)
  * An RP can be issued many tokens
  * Each token can have many claims
@@ -299,6 +308,7 @@ at equivalent LOA of the linked claim (inference must not be used to
 escalate LOA).
 
 For example:
+
  * If IDP-X issued a token with <ID-A@LOA-2> and <ID-B@LOA-2>; and
  * IDP-Y issued the same RP a token with <ID-B@LOA-1> and ID-C@LOA-1 ;
  * by transitive inference, the RP knows ID-A is an alias for ID-C
@@ -312,6 +322,7 @@ their assertion.
 
 Mutualy asserted alias relationships are made at the higher LOA of the
 pair. For example:
+
  * If IDP-X issued a token for <ID-A@LOA-2>; and
  * This token was used to assert alias relationship with ID-C; and
  * IDP-Y issued a token for <ID-C@LOA-1>; and
