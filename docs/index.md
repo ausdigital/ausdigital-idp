@@ -6,11 +6,18 @@
  * Editor: Chris Gough
  * Contributors: Steve Capell
 
-This document describes an [OIDC](https://en.wikipedia.org/wiki/OpenID_Connect) based federated identity model that provides identity assurance for the e-invoicng framework.  This specification does not modofy OIDC in any way.  Rather it provides a standardised set of scopes, claims, and identity assurance levels.
+This document describes a federated model for providing identity assurance for secure business messaging. The initial development is focussed on supporting digital procure-to-pay protocols (in particular the Australian e-Invoicng Framework), however the design is intended to be more generic than that. 
 
-This specification aims to support the Australian Digital Business Council
-[eInvoicing initiative](https://ausdigital.github.io), and is under active development
-at [https://github.com/ausdigital/identity-provider](https://github.com/ausdigital/identity-provider).
+This specification is based on the widely used [OpenID Connect](https://en.wikipedia.org/wiki/OpenID_Connect) standard (OIDC) for authentication and authorisation. The specification uses the defined extension mechanism in OIDC to provide a standardised set of scopes, claims, and identity assurance levels.
+
+These extensions:
+ * Allow a person or online service to prove they have authorisation to update business metadata on behalf of a business. This authorisation is necessary to orchestrate the various distributed components that are involved in secure business messaging.
+ * Simplify the adaption of existing identity schemes for secure business messageing / procure-to-pay applications.
+ * Leave jurisdictions free to regulate local business identity however they like.
+
+This specification does not create or nominate any central authority, other than to propose that identity providers implement this open standard consistently. Instead, it is based on the idea of an *identity market* that spans multiple jurisdictions, where participants and individuals make their own decisions about trust.
+
+This specification exists to support the Australian Digital Business Council [e-Invoicing initiative](https://ausdigital.github.io), and is under active development at [https://github.com/ausdigital/identity-provider](https://github.com/ausdigital/identity-provider).
 
 
 ## Licence
