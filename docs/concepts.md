@@ -358,7 +358,7 @@ allow maintenance of these access control lists.
 
 There are many other kinds of relationships between businesses, many
 different complex webs of association. Some of them resemble social
-media firends networks.
+media friend networks.
 
 The ADBC IDP Specification does not attempt to capture or model these
 relationship graphs. Like access control lists used to implement a
