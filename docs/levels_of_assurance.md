@@ -9,12 +9,12 @@ an RP places in the individual identity claims.
 A relying party places categorical trust in each identity claims that it
 accepts from an IDP.
 
-  LOA    Confidence    Definition
-  ------ ------------- -----------------------------------------------
-  0      Low           Self-asserted identity
-  1      Moderate      Unregulated community/organisation assurance
-  2      High          Regulated organisation assurance
-  3      Very High     Jurisdictional Assurance
+| LOA    | Confidence    | Definition                                      |
+| ------ | ------------- | ----------------------------------------------- |
+| 0      | Low           | Self-asserted identity                          |
+| 1      | Moderate      | Unregulated community/organisation assurance    |
+| 2      | High          | Regulated organisation assurance                |
+| 3      | Very High     | Jurisdictional Assurance                        |
 
 These categories are non-discretionary, meaning that if the relying
 party accepts the token from the IDP, the LOA of the trust is determined
@@ -27,6 +27,8 @@ the individual relying party).
 The following entity/relationship diagram illusrates the logical model
 referenced in the rules that determine LOA. These terms are defined in
 the IDP Concepts chapter.
+
+
 
 In words, the logical model means:
 
