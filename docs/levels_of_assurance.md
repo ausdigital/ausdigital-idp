@@ -28,7 +28,7 @@ The following entity/relationship diagram illusrates the logical model
 referenced in the rules that determine LOA. These terms are defined in
 the IDP Concepts chapter.
 
-
+![LOA logical ERD](images/loa_logical_model.png)
 
 In words, the logical model means:
 
