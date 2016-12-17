@@ -25,23 +25,21 @@ authorisation (to RPs).
 ![identity services ERD](images/identity_services.png)
 
 
-## Bearer Tokens
+## Access Tokens
 
 Identity service consumers are called "Relying Parties" because they
 *rely on* services provided by the IDP. In practice this means the IDP
 provides the RP with a token, which the RP can make use of.
 
 OIDC provides a number of mechanisms for the RP to consume identity
-service. ADBC IDP Specification only uses one of them, called a "bearer
-token". The OIDC bearer tokens use the (JWT)\[<https://jwt.io/>\]
-standard.
+service. ADBC IDP Specification only uses one of them, called a (JWT)[<https://jwt.io/>] (JSON Web Token).
 
 This means that the RP is issued a JWT by the IDP, and the RP relys on
 that JWT for information about someone's identity, and to prove that
 (acording to the IDP) the RP has the user's permission to do certain
 things.
 
-![bearer token ERD](images/bearer_tokens.png)
+![JWT ERD](images/jwt.png)
 
 A JWT:
 
@@ -70,8 +68,7 @@ A JWT can have:
 The OIDC protocol contains some standard scopes and claims which must be
 supported by all compliant IDPs, and also allows OIDC applications to
 implement custom scopes and claims if they need to. The ADBC IDP
-Specification makes used of custom scopes and claims, which ADBC IDP
-Specification compliant IDPs must also support.
+Specification makes used of a custom scope and standardised claims, which ADBC IDP Specification compliant IDPs must also support.
 
 ![claims and scopes ERD](images/claims_and_scopes.png)
 
