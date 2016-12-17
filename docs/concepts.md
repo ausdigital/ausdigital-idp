@@ -135,15 +135,13 @@ Australian Business Register operates an IDP service called VanGuard.
 There are two kinds of trust that need to be taken into consideration by
 a RP. They relate to the strength of the identity and of credentials.
 
-  RP Trust type       Credential Strength                            Identity Strength
-  ------------------- ---------------------------------------------- --------------------------------------
-  What is trusted     The authentication token (JWT)                 Identity Claims within the JWT
-  -----------------   --------------------------------------------   ------------------------------------
-  Who is trusted      The Identity Provider (IDP)                    The authenticated business
-  -----------------   --------------------------------------------   ------------------------------------
-  RP Confidence       The token actually represents authentication   The IDP user is who they claim to be
-  -----------------   --------------------------------------------   ------------------------------------
-  How is it trusted   Totally (all or nothing)                       To a degree (level of assurance)
+| RP Trust type       | Credential Strength                            | Identity Strength                      |
+| ------------------- | ---------------------------------------------- | -------------------------------------- |
+| What is trusted     | The authentication token (JWT)                 | Identity Claims within the JWT         |
+| Who is trusted      | The Identity Provider (IDP)                    | The authenticated business             |
+| RP Confidence       | The token actually represents authentication   | The IDP user is who they claim to be   |
+| How is it trusted   | Totally (all or nothing)                       | To a degree (level of assurance)       |
+
 
 Credential strength is a partially subjective assessment of the IDP
 itself, it relates to the RP's confidence that the IDP user (which the
