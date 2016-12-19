@@ -13,7 +13,7 @@ This specification is based on the widely used [OpenID Connect](https://en.wikip
 These extensions:
 
  * Allow a person or online service to prove they have authorisation to update business metadata on behalf of a business. This authorisation is necessary to orchestrate the various distributed components that are involved in secure business messaging.
- * Simplify the adaption of existing identity schemes for secure business messageing / procure-to-pay applications.
+ * Simplify the adaption of existing identity schemes for secure business messaging / procure-to-pay applications.
  * Leave jurisdictions free to regulate local business identity however they like.
 
 This specification does not create or nominate any central authority, other than to propose that identity providers implement this open standard consistently. Instead, it is based on the idea of an *identity market* that spans multiple jurisdictions, where participants and individuals make their own decisions about trust.
@@ -23,11 +23,11 @@ This specification exists to support the Australian Digital Business Council [e-
 
 ## Introduction
 
-Integrity in the transacitonal network depends on business identity confidence.  Specifically that a person creating a transaction does have an authorised role in a business that is identified by a recognised scheme (eg Australian Business Number).  The framework can allow multiple assurance levels about an identity claim so long as the assurance level associated with any transaction is known to all parties.
+Integrity in the transactional network depends on business identity confidence.  Specifically that a person creating a transaction does have an authorised role in a business that is identified by a recognised scheme (eg Australian Business Number).  The framework can allow multiple assurance levels about an identity claim so long as the assurance level associated with any transaction is known to all parties.
 
 ![Identity Framework](IdentityModel.png)
 
-The Open ID Connect (OIDC) specification is a very well established protcol for authentication and authorisation that meets the needs of the framework.  Therefore this specification builds upon OIDC by specifying a set of scopes, claims, and assurance levels that will support consistent use of a marketplace of identity providers.
+The Open ID Connect (OIDC) specification is a very well established protocol for authentication and authorisation that meets the needs of the framework.  Therefore this specification builds upon OIDC by specifying a set of scopes, claims, and assurance levels that will support consistent use of a marketplace of identity providers.
 
 
 ## Licence

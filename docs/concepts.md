@@ -96,8 +96,8 @@ For example, under the spec, a JWT may prove:
 
 In this example the identity claim is against the "Australian Business
 Number" ID Scheme (ABN). It means that (according to this IDP), this
-client of the IDP (the RP) has permission to update businesses metadata
-for the business known as ABN 12345678.
+client of the IDP is the business known as ABN 12345678, and they have
+given the RP permission to update their businesses metadata.
 
 
 ## ID Schemes and Jurisdictions
@@ -120,7 +120,7 @@ identity market. For example in Australia, the Commonwealth owned
 Australian Business Register operates an IDP service called VanGuard.
 
  * An ID Scheme may have zero or one Jurisdiction
- * A Jurisdiction may have zero or more ID Schemes (we would excect 1 to be the usual number)
+ * A Jurisdiction may have zero or more ID Schemes (we would expect 1 to be the usual number)
  * A Jurisdiction may operate zero or more Identity Providers
  * An Identity Provider may be operated publicaly (by a Jurisdiction) or privately (by a person or company).
 
