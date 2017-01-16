@@ -20,7 +20,7 @@ These extensions:
 
 This specification does not create or nominate any central authority, other than to propose that identity providers implement this open standard consistently. Instead, it is based on the idea of an *identity market* that spans multiple jurisdictions, where participants and individuals make their own decisions about trust.
 
-This specification exists to support the Australian Digital Business Council [e-Invoicing initiative](https://ausdigital.github.io), and is under active development at [https://github.com/ausdigital/identity-provider](https://github.com/ausdigital/identity-provider).
+This specification exists to support the Australian Digital Business Council [e-Invoicing initiative](https://ausdigital.github.io), and is under active development at [https://github.com/ausdigital/ausdigital-idp](https://github.com/ausdigital/ausdigital-idp).
 
 
 ## Introduction

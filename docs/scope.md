@@ -19,6 +19,6 @@ The design intent is to define a standard that's applicable to any appropriate I
 
 ## Adding Jurisdictions and Identity Schemes to the standard
 
-The process for adding a jurisdiction to the specification starts with raising a ticket at the [community GitHub site](https://github.com/ausdigital/identity-provider). This is the same process as any other change to the Specification ([Consensus Oriented Specification System](https://rfc.unprotocols.org/spec:2/COSS/)).
+The process for adding a jurisdiction to the specification starts with raising a ticket at the [community GitHub site](https://github.com/ausdigital/ausdigital-idp). This is the same process as any other change to the Specification ([Consensus Oriented Specification System](https://rfc.unprotocols.org/spec:2/COSS/)).
 
 The reason other jurisdictions and schemes have not been pre-emptively included, is that the is no evidence of need for these in the current community. Contribution from stakeholders in jurisdictions outside Australia would be very welcome.
