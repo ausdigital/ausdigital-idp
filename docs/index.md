@@ -1,4 +1,4 @@
-**[Back to Ausdigital.org](http://ausdigital.org/)**
+**[Back to AusdiDital.org](http://ausdigital.org/)**
 
 # 1/IDP
 
