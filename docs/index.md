@@ -8,7 +8,7 @@
  * Editor: Chris Gough
  * Contributors: Steve Capell
 
-This document describes a federated model for providing identity assurance for secure business messaging. The initial development is focussed on supporting digital procure-to-pay protocols (in particular the Australian e-Invoicng Framework), however the design is intended to be more generic than that. 
+This document describes a federated model for providing identity assurance for secure business messaging. The initial development is focussed on supporting digital procure-to-pay protocols (in particular the Australian e-Invoicing Framework), however the design is intended to be more generic than that. 
 
 This specification is based on the widely used [OpenID Connect](https://en.wikipedia.org/wiki/OpenID_Connect) standard (OIDC) for authentication and authorisation. The specification uses the defined extension mechanism in OIDC to provide a standardised set of scopes, claims, and identity assurance levels.
 
