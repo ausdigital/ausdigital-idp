@@ -34,9 +34,9 @@ provides the RP with a token, which the RP can make use of.
 OIDC provides a number of mechanisms for the RP to consume identity
 service. ADBC IDP Specification only uses one of them, called a (JWT)[<https://jwt.io/>] (JSON Web Token).
 
-This means that the RP is issued a JWT by the IDP, and the RP relys on
+This means that the RP is issued a JWT by the IDP, and the RP relies on
 that JWT for information about someone's identity, and to prove that
-(acording to the IDP) the RP has the user's permission to do certain
+(according to the IDP) the RP has the user's permission to do certain
 things.
 
 ![JWT ERD](images/jwt.png)
@@ -50,7 +50,7 @@ A JWT:
 
 From the RP's perspective, something happens between a user and the IDP
 (authentication of the user, and authorisation of the RP based on the
-user's explicit concent) and as a result, the IDP creates a JWT and
+user's explicit consent) and as a result, the IDP creates a JWT and
 provides it to the RP.
 
 
@@ -83,7 +83,7 @@ Specification defines an Australian Business Number (ABN) type of
 identity claim, however other claims will be supported if compliant
 Identity Providers can be found to service them.
 
-The ADBC IDP Specification also adds a single aditional authorisation
+The ADBC IDP Specification also adds a single additional authorisation
 scope ("update business metadata"). This scope is required for
 orchestrating business message components.
 
@@ -122,7 +122,7 @@ Australian Business Register operates an IDP service called VanGuard.
  * An ID Scheme may have zero or one Jurisdiction
  * A Jurisdiction may have zero or more ID Schemes (we would expect 1 to be the usual number)
  * A Jurisdiction may operate zero or more Identity Providers
- * An Identity Provider may be operated publicaly (by a Jurisdiction) or privately (by a person or company).
+ * An Identity Provider may be operated publicly (by a Jurisdiction) or privately (by a person or company).
 
 ![ID schemes and jurisdictions ERD](images/id_schemes_and_jurisdictions.png)
 
@@ -149,7 +149,7 @@ JWT, Credential strength is an all or nothing proposition.
 
 Assuming a JWT is accepted, how confident is the RP that the IDP's
 customer is who they claim to be? Because a JWT can contain multiple
-such identiy claims, this degree of trust is placed in each individual
+such identity claims, this degree of trust is placed in each individual
 claim, not the JWT itself. The ADBC IDP Specification is geared towards
 business identities and relies on participation in regulated commerce as
 it's source of identity strength. It defines different "Levels of
@@ -161,8 +161,8 @@ identity assurance.
 
 Consider these two hypothetical scenarios:
 
- * IDP-A uses a username/password credential for authenticating Australian businesses, where both the username and password are always easily guessable (single factor weak credential). It would be trivially easy easy to trick the IDP-A into issueing tokens that do not in fact represent authentication or authorisation of the business.
- * IDP-B requires a very long and complicated password and the presentation of a tamper-resistant hardware device in person to a physically secure locaton, where a full-body NMRI scan is performed (triple factor strong credentials). It is very difficult to trick IDP-B into issueing tokens that do not represent authentication and authorisation of the business.
+ * IDP-A uses a username/password credential for authenticating Australian businesses, where both the username and password are always easily guessable (single factor weak credential). It would be trivially easy to trick the IDP-A into issuing tokens that do not in fact represent authentication or authorisation of the business.
+ * IDP-B requires a very long and complicated password and the presentation of a tamper-resistant hardware device in person to a physically secure location, where a full-body NMRI scan is performed (triple factor strong credentials). It is very difficult to trick IDP-B into issuing tokens that do not represent authentication and authorisation of the business.
 
 ![credential trust ERD](images/credential_trust.png)
 
@@ -245,10 +245,10 @@ token allows the RP to do.
 
 OIDC supports multiple "Authorisation Flows", which are all based on the
 concept that the RP is explicitly granted permission based on explicit
-concent of the End-User, which is given in response to a request for
+consent of the End-User, which is given in response to a request for
 access by the RP. The ADBC IDP specification mandates that the OIDC
 Authorisation Code Flow is supported (MUST be supported). Other OIDC
-authorisation flows are alowed (MAY be supported).
+authorisation flows are allowed (MAY be supported).
 
 Not all authorisation systems are based on consent. Other systems (such
 as Role Based Control) are also common, and use rules (rather than
@@ -315,7 +315,7 @@ relationship with ID-B, and ID-B asserted an alias relationship with
 ID-A. Either identity could break this alias relationship by revoking
 their assertion.
 
-Mutualy asserted alias relationships are made at the higher LOA of the
+Mutually asserted alias relationships are made at the higher LOA of the
 pair. For example:
 
  * If IDP-X issued a token for ID-A@LOA-2; and
@@ -337,11 +337,11 @@ consent of the End-User business.
 
 But authenticated parties do not always act on their own behalf. There
 are circumstances where one party (e.g. a professional service provider
-such as a book keepter or other leger service) has the permission and
+such as a book keeper or other leger service) has the permission and
 ability to make certain actions on the behalf of another business.
 
 These role-based authorisations are not part of the ADBC IDP
-Specification. They May be supported elseware, but not as part of this
+Specification. They May be supported elsewhere, but not as part of this
 spec. There is no need for specific OICD authorisation scopes or rules
 to support this. If the ADBC Service Metadata Publisher specification
 included role-based access control lists, then the existing
@@ -349,7 +349,7 @@ authorisation scope (update business metadata) would be sufficient to
 allow maintenance of these access control lists.
 
 
-## Business network relationships between identites
+## Business network relationships between identities
 
 There are many other kinds of relationships between businesses, many
 different complex webs of association. Some of them resemble social
@@ -357,7 +357,7 @@ media friend networks.
 
 The ADBC IDP Specification does not attempt to capture or model these
 relationship graphs. Like access control lists used to implement a
-role-based security modelfor "on behalf of" relationships, it is
+role-based security model for "on behalf of" relationships, it is
 possible to capture association webs as business metadata. There is no
 need to make any specific provision in the ADBC-IDP Specification to
 support them.
