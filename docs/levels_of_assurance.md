@@ -24,7 +24,7 @@ the individual relying party).
 
 ## Logical Model
 
-The following entity/relationship diagram illusrates the logical model
+The following entity/relationship diagram illustrates the logical model
 referenced in the rules that determine LOA. These terms are defined in
 the IDP Concepts chapter.
 
