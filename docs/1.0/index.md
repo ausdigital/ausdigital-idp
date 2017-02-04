@@ -1,3 +1,56 @@
+ * Spec ID: ausdigital.org/idp/1.0
+ * ![raw](http://rfc.unprotocols.org/spec:2/COSS/raw.svg)
+ * Editor: Chris Gough
+ * Contributors: Steve Capell
+
+# 1/IDP
+
+## ADBC Identity Provider (IDP) Specification
+
+This document describes a federated model for providing identity assurance for secure business messaging. The initial development is focussed on supporting digital procure-to-pay protocols (in particular the Australian e-Invoicing Framework), however the design is intended to be more generic than that. 
+
+This specification is based on the widely used [OpenID Connect](https://en.wikipedia.org/wiki/OpenID_Connect) standard (OIDC) for authentication and authorisation. The specification uses the defined extension mechanism in OIDC to provide a standardised set of scopes, claims, and identity assurance levels.
+
+These extensions:
+
+ * Allow a person or online service to prove they have authorisation to update business metadata on behalf of a business. This authorisation is necessary to orchestrate the various distributed components that are involved in secure business messaging.
+ * Simplify the adaption of existing identity schemes for secure business messaging / procure-to-pay applications.
+ * Leave jurisdictions free to regulate local business identity however they like.
+
+This specification does not create or nominate any central authority, other than to propose that identity providers implement this open standard consistently. Instead, it is based on the idea of an *identity market* that spans multiple jurisdictions, where participants and individuals make their own decisions about trust.
+
+This specification exists to support the Australian Digital Business Council [e-Invoicing initiative](https://ausdigital.github.io), and is under active development at [https://github.com/ausdigital/ausdigital-idp](https://github.com/ausdigital/ausdigital-idp).
+
+
+## Introduction
+
+Integrity in the transactional network depends on business identity confidence.  Specifically that a person creating a transaction does have an authorised role in a business that is identified by a recognised scheme (eg Australian Business Number).  The framework can allow multiple assurance levels about an identity claim so long as the assurance level associated with any transaction is known to all parties.
+
+![Identity Framework](images/IdentityModel.png)
+
+The Open ID Connect (OIDC) specification is a very well established protocol for authentication and authorisation that meets the needs of the framework.  Therefore this specification builds upon OIDC by specifying a set of scopes, claims, and assurance levels that will support consistent use of a marketplace of identity providers.
+
+
+## Licence
+
+Copyright (c) 2016 the Editor and Contributors. All rights reserved.
+
+This Specification is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This Specification is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program; if not, see [http://www.gnu.org/licenses](http://www.gnu.org/licenses).
+
+
+## Change Process
+
+This document is governed by the [2/COSS](http://rfc.unprotocols.org/spec:2/COSS/) (COSS).
+
+
+## Language
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
+
 # IDP Concepts
 
 This chapter explains concepts used in the ADBC IDP Specification.
@@ -348,7 +401,6 @@ included role-based access control lists, then the existing
 authorisation scope (update business metadata) would be sufficient to
 allow maintenance of these access control lists.
 
-
 ## Business network relationships between identities
 
 There are many other kinds of relationships between businesses, many
@@ -361,3 +413,120 @@ role-based security model for "on behalf of" relationships, it is
 possible to capture association webs as business metadata. There is no
 need to make any specific provision in the ADBC-IDP Specification to
 support them.
+
+# Scope
+
+
+## Jurisdictions
+
+Australia is the only jurisdiction currently supported by the ADBC IDP Specification.
+
+The design-intent of the specification is to be applicable to any jurisdiction.
+
+Any jurisdiction with one or more appropriate identity schemes and a suitable identity market could be included in the specification.
+
+
+## Identity Schemes
+
+The Australian Business Number (ABN) is currently the only ID Scheme supported by the ADBC IDP Specification.
+
+The design intent is to define a standard that's applicable to any appropriate ID Scheme.
+
+
+## Adding Jurisdictions and Identity Schemes to the standard
+
+The process for adding a jurisdiction to the specification starts with raising a ticket at the [community GitHub site](https://github.com/ausdigital/ausdigital-idp). This is the same process as any other change to the Specification ([Consensus Oriented Specification System](https://rfc.unprotocols.org/spec:2/COSS/)).
+
+The reason other jurisdictions and schemes have not been pre-emptively included, is that there is no evidence of need for these in the current community. Contribution from stakeholders in jurisdictions outside Australia would be very welcome.
+
+
+# Levels Of Assurance (LOA)
+
+The IDP Concepts chapter describes level of assurance as the trust that
+an RP places in the individual identity claims.
+
+
+## Specified LOAs
+
+A relying party places categorical trust in each identity claims that it
+accepts from an IDP.
+
+| LOA    | Confidence    | Definition                                      |
+| ------ | ------------- | ----------------------------------------------- |
+| 0      | Low           | Self-asserted identity                          |
+| 1      | Moderate      | Unregulated community/organisation assurance    |
+| 2      | High          | Regulated organisation assurance                |
+| 3      | Very High     | Jurisdictional Assurance                        |
+
+These categories are non-discretionary, meaning that if the relying
+party accepts the token from the IDP, the LOA of the trust is determined
+by rules that are part of the ADBC IDP Specification (not by policy of
+the individual relying party).
+
+
+## Logical Model
+
+The following entity/relationship diagram illustrates the logical model
+referenced in the rules that determine LOA. These terms are defined in
+the IDP Concepts chapter.
+
+![LOA logical ERD](images/loa_logical_model.png)
+
+In words, the logical model means:
+
+ * An IDP can make many Identity Claims
+ * All Identity Claims are associated with one Identity Scheme
+ * An Identity Scheme may be associated with zero or one Jurisdiction
+ * A Jurisdiction may have more than one Identity Scheme
+ * A Jurisdiction may have more than one pieces of KYC regulation.
+
+
+# LOA Rules
+
+ * If an ID Scheme has no Jurisdiction, then a Relying Party MUST NOT trust ID Claims against that scheme above LOA-1. The maximum possible LOA for schemes without jurisdiction is LOA-1, LOA-0 is also possible for schemes without a jurisdiction.
+ * If an IDP is not bound to KYC Regulation in the Jurisdiction of the ID Scheme, then a Relying Party MUST NOT trust ID Claims against that scheme from that IDP at LOA-2.
+ * If an IDP is bound to KYC Regulation in the Jurisdiction of the ID Scheme, then a Relying Party MAY trust ID Claims against that scheme from that IDP at LOA-2.
+ * If a Relying Party does not have a contractual relationship with an IDP assuring security cooperation in the event of incident or complaint, the relying party MUST NOT trust ID Claims from that IDP at LOA-2.
+ * If an IDP is operated by the head of power (i.e. Government) in the Jurisdiction of the ID Scheme, then the Relying Party MUST trust Identity Claims against that scheme from that IDP at LOA-3.
+ * A Relying Party may chose to reject claims from any IDP, including claims from an IDP operated by the head of power in the Jurisdiction of the Identity Scheme.
+
+ # Known Customers
+
+The ADBC IDP Specification has a requirement to support fully automated
+workflows. Some OIDC tokens provide persistent authorisation, but there
+are some automated business to business processes where the End-User is
+unlikely to be available to provide authorisation in realtime.
+
+Our solution is what we call a "Known Customer" authentication. This
+combines "on behalf of" relationship between businesses with contractual
+proof of consent. The credential security of Known Customer
+relationships is intrinsically weak, therefor needs to be supported by
+strong perimeter security processes such as legal protection, audit,
+monitoring, review and dispute resolution capabilities.
+
+Known customer relationship is only allowed for LOA1 and LOA2 claims.
+
+Support for Known Customers at LOA-1 or LOA-2 requires an additional API
+(not part of OIDC), to allow the trusted business to:
+
+ * Assert that the business identity is a known customer request a JWT with a known customer's identity claim and "manage business metadata" authorisation scope.
+
+TODO: cross reference API specifications
+
+There must be a contractual relationship between the RP and the trusted
+business, that ensures known customer assertions are auditable and
+operated with appropriate security precautions.
+
+An LOA-1 claim essentially relies on offline authorisation by the
+business, through commercial/contractual arrangements between End-User
+businesses and the organisation that has a Known Customer relationship
+with them.
+
+An LOA-2 claim is like an LOA-1 claim, except the commercial/contractual
+relationship between End User businesses and the organisation issuing
+authorisations on their behalf is regulated by the KYC regulations in
+the Jurisdiction of the Identity Scheme that the claim is made under.
+
+The JWT is issued through the REST API, not using the OIDC protocol.
+However, once issued it can be validated and renewed as though it were
+issued through the OICD protocol (Authorisation Code Flow).
