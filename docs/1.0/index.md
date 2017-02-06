@@ -1,13 +1,22 @@
- * Spec ID: ausdigital.org/idp/1.0
+ * Spec ID: ausdigital.org/ausdigital-idp/1.0
  * ![raw](http://rfc.unprotocols.org/spec:2/COSS/raw.svg)
- * Editor: Chris Gough
- * Contributors: Steve Capell
+ * Editor: [Chris Gough](mailto:christopher.d.gough@gmail.com)
+ * Contributors: [Steven Capell](mailto:steven.capell@gosource.com.au)
 
-# 1/IDP
+# AusDigital Identity Provider (IDP) 1.0 Specification
 
-## ADBC Identity Provider (IDP) Specification
+## Introduction
 
-This document describes a federated model for providing identity assurance for secure business messaging. The initial development is focussed on supporting digital procure-to-pay protocols (in particular the Australian e-Invoicing Framework), however the design is intended to be more generic than that. 
+This document describes a federated model for providing identity assurance for secure business messaging. The initial development is focussed on supporting digital procure-to-pay protocols (in particular the Australian eInvoicing Framework), however the design is intended to be more generic than that. 
+
+Integrity in the transactional network depends on business identity confidence.  Specifically that a person creating a transaction does have an authorised role in a business that is identified by a recognised scheme (eg Australian Business Number).  The framework can allow multiple assurance levels about an identity claim so long as the assurance level associated with any transaction is known to all parties.
+
+![Identity Framework](images/IdentityModel.png)
+
+The Open ID Connect (OIDC) specification is a very well established protocol for authentication and authorisation that meets the needs of the framework.  Therefore this specification builds upon OIDC by specifying a set of scopes, claims, and assurance levels that will support consistent use of a marketplace of identity providers.
+
+
+## Goals
 
 This specification is based on the widely used [OpenID Connect](https://en.wikipedia.org/wiki/OpenID_Connect) standard (OIDC) for authentication and authorisation. The specification uses the defined extension mechanism in OIDC to provide a standardised set of scopes, claims, and identity assurance levels.
 
@@ -19,16 +28,31 @@ These extensions:
 
 This specification does not create or nominate any central authority, other than to propose that identity providers implement this open standard consistently. Instead, it is based on the idea of an *identity market* that spans multiple jurisdictions, where participants and individuals make their own decisions about trust.
 
-This specification exists to support the Australian Digital Business Council [e-Invoicing initiative](https://ausdigital.github.io), and is under active development at [https://github.com/ausdigital/ausdigital-idp](https://github.com/ausdigital/ausdigital-idp).
+
+## Status
+
+This specification aims to support the Australian Digital Business Council
+[eInvoicing initiative](http://ausdigital.org), and is under active
+development at
+[https://github.com/ausdigital/ausdigital-idp](https://github.com/ausdigital/ausdigital-idp).
+
+Comments and feedback are encouraged and welcome. Pull requests with improvements are welcome too.
 
 
-## Introduction
+## Glossary
 
-Integrity in the transactional network depends on business identity confidence.  Specifically that a person creating a transaction does have an authorised role in a business that is identified by a recognised scheme (eg Australian Business Number).  The framework can allow multiple assurance levels about an identity claim so long as the assurance level associated with any transaction is known to all parties.
+Phrase | Definition
+------------ | -------------
+ausdigital-idp/1 | This specification.
+ausdigital-dcl/1 | Version 1 of the AusDigtial [Digital Capability Locator (DCL)](https://ausdigital-dcl.readthedocs.io) specification
+ausdigital-dcp/1 | Version 1 of the AusDigital [Digital Capability Publisher (IDP)](https://ausdigital-dcp.readthedocs.io) specification.
+ausdigital-tap/1 | Version 1 of the AusDigital [Transaction Access Point(TAP)](http://ausdigital.org/transaction-access-point) specification.
+ausdigital-tap/2 | Version 2 of the AusDigital [Transaction Access Point(TAP)](http://ausdigital.org/transaction-access-point) specification.
+ausdigital-nry/1 | Version 1 of the AusDigital [Notary (NRY)](http://ausdigital.org/notary/) specification.
 
-![Identity Framework](images/IdentityModel.png)
+The IDP service depends on TBA and TBA.
 
-The Open ID Connect (OIDC) specification is a very well established protocol for authentication and authorisation that meets the needs of the framework.  Therefore this specification builds upon OIDC by specifying a set of scopes, claims, and assurance levels that will support consistent use of a marketplace of identity providers.
+Other TBA and TBA services both depend on the IDP service.
 
 
 ## Licence
@@ -530,3 +554,11 @@ the Jurisdiction of the Identity Scheme that the claim is made under.
 The JWT is issued through the REST API, not using the OIDC protocol.
 However, once issued it can be validated and renewed as though it were
 issued through the OICD protocol (Authorisation Code Flow).
+
+
+# Related Material
+
+ * [GitHub issues](https://github.com/ausdigital/ausdigital-idp/issues/) for collaborating on the development of the IDP.
+ * A reference [IDP service](https://idp.testpoint.io/) (for testing and development purposes).
+ * Free, Open-Source Software [IDP implementation](https://github.com/test-point/testpoint-idp).
+ * An automated [IDP test suite](https://github.com/test-point/testpoint-idp).
