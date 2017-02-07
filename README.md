@@ -4,7 +4,7 @@ A federated set of one or more identity providers are the key source of trust fo
 
  * [Version 1.0](/docs/1.0/index.md)
 
-Specification: [https://ausdigital-idp.readthedocs.io/](https://ausdigital-idp.readthedocs.io/)
+Specification: [http://ausdigital.org/specs/ausdigital-idp/1.0/](http://ausdigital.org/specs/ausdigital-idp/1.0/)
 
 Community discussion/support: [ausdigital.org](http://ausdigital.org)
 

@@ -1,9 +1,10 @@
- * Spec ID: ausdigital.org/ausdigital-idp/1.0
- * ![raw](http://rfc.unprotocols.org/spec:2/COSS/raw.svg)
- * Editor: [Chris Gough](mailto:christopher.d.gough@gmail.com)
- * Contributors: [Steven Capell](mailto:steven.capell@gosource.com.au)
-
-# AusDigital Identity Provider (IDP) 1.0 Specification
+---
+title: "AusDigital Identity Provider (IDP) 1.0 Specification"
+specID: "ausdigital-idp/1"
+status: "![raw](http://rfc.unprotocols.org/spec:2/COSS/raw.svg)"
+editors: "[Chris Gough](mailto:christopher.d.gough@gmail.com)"
+contributors: "[Steven Capell](mailto:steven.capell@gosource.com.au)"
+---
 
 ## Introduction
 
@@ -44,8 +45,8 @@ Comments and feedback are encouraged and welcome. Pull requests with improvement
 Phrase | Definition
 ------------ | -------------
 ausdigital-idp/1 | This specification.
-ausdigital-dcl/1 | Version 1 of the AusDigtial [Digital Capability Locator (DCL)](https://ausdigital-dcl.readthedocs.io) specification
-ausdigital-dcp/1 | Version 1 of the AusDigital [Digital Capability Publisher (IDP)](https://ausdigital-dcp.readthedocs.io) specification.
+ausdigital-dcl/1 | Version 1 of the AusDigtial [Digital Capability Locator (DCL)](http://ausdigital.org/specs/ausdigital-dcl/1.0) specification
+ausdigital-dcp/1 | Version 1 of the AusDigital [Digital Capability Publisher (IDP)](http://ausdigital.org/specs/ausdigital-dcp/1.0) specification.
 ausdigital-tap/1 | Version 1 of the AusDigital [Transaction Access Point(TAP)](http://ausdigital.org/transaction-access-point) specification.
 ausdigital-tap/2 | Version 2 of the AusDigital [Transaction Access Point(TAP)](http://ausdigital.org/transaction-access-point) specification.
 ausdigital-nry/1 | Version 1 of the AusDigital [Notary (NRY)](http://ausdigital.org/notary/) specification.
