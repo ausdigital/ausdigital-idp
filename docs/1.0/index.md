@@ -177,6 +177,40 @@ Number" ID Scheme (ABN). It means that (according to this IDP), this
 client of the IDP is the business known as ABN 12345678, and they have
 given the RP permission to update their businesses metadata.
 
+## Participant ID claim name
+
+Any participant ID claim name represents prefix of full participant ID schema without last commponent. Content of that claim is a list of dicts, where every dict contains only one component, key is the last component of schema, value is participant ID without schema.
+
+JWT example (partial):
+```
+ "urn:oasis:names:tc:ebcore:partyid-type:iso6523": [
+    {"0151": "11111111111"},
+    {"0088": "22222222222"},
+    {"0088": "33333333333"},
+    {"0088": "44444444444"}
+  ],
+  "urn:unregistered": [
+    {"foo": "1234"},
+    {"bar": "5678"}
+  ],
+  "urn:oasis:names:tc:ebcore:partyid-type:iso20022:ProprietaryIdentification": [
+    {"ausdigitalorg": "nry.testpoint.io"},
+    {"company2": "..."}
+  ],
+```
+
+Participant ID's extracted from that JWT:
+
+```
+urn:oasis:names:tc:ebcore:partyid-type:iso6523:0151::11111111111
+urn:oasis:names:tc:ebcore:partyid-type:iso6523:0088::22222222222
+urn:oasis:names:tc:ebcore:partyid-type:iso6523:0088::33333333333
+urn:oasis:names:tc:ebcore:partyid-type:iso6523:0088::44444444444
+urn:unregistered:foo::1234
+urn:unregistered:bar::5678
+urn:oasis:names:tc:ebcore:partyid-type:iso20022:ProprietaryIdentification:ausdigitalorg::nry.testpoint.io
+urn:oasis:names:tc:ebcore:partyid-type:iso20022:ProprietaryIdentification:company2::...
+```
 
 ## ID Schemes and Jurisdictions
 
